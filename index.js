@@ -5,3 +5,8 @@ callbacksPromises.withPromise("Emilia Clark")
     .then((value)=> {
         console.log(`hola ${value}`)
     })
+    const usedAsyncAwait = async () => {
+        let nombre = await callbacksPromises.withPromise("emilia");
+        console.log(nombre);
+    }
+    usedAsyncAwait();
