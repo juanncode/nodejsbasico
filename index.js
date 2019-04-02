@@ -1,5 +1,14 @@
-const greet = require("./greet");
+const http = require('http')
+const fs = require('fs')
 
-greet.emit("call", "jc", "ortiz", (name, apellido, string) => {
-  console.log(`hola 2 ${name} ${apellido} ${string}`);
-});
+const server = http.createServer((req, res) => {
+  fs.readFile('./resources/index.html',(error, data) => {
+    if (error) {
+      console.error(error)
+      return
+    }
+    res.end(data)
+  })
+})
+
+server.listen('4000');
